@@ -1,0 +1,11 @@
+stages:
+  - build
+
+.build: &build
+  image: ubcctlt/github2gitlab
+  stage: build
+  script:
+    - github2gitlab --gitlab-url https://gitlab.thecoders.io --gitlab-repo kacper.gogol/sync-repo --gitlab-token $gitlab_token --github-repo gucio1200/sync_repo
+
+build:
+  <<: *build
